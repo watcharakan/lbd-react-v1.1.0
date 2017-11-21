@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ChartistGraph from 'react-chartist';
 import { Grid, Row, Col } from 'react-bootstrap';
-
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 
 import {Card} from 'components/Card/Card.jsx';
 import {StatsCard} from 'components/StatsCard/StatsCard.jsx';
 import {Tasks} from 'components/Tasks/Tasks.jsx';
+import 'react-web-tabs/dist/react-web-tabs.css';
 import {
     dataPie,
     legendPie,
@@ -77,26 +79,26 @@ class Dashboard extends Component {
                         {/*</Col>*/}
                     </Row>
                     <Row>
-                        <Col md={8}>
+                        <Col md={4}>
                             <Card
                                 statsIcon="fa fa-history"
                                 id="chartHours"
-                                title="Users Behavior"
-                                category="24 Hours performance"
+                                title="HIT TRIP"
+                                category=""
                                 stats="Updated 3 minutes ago"
                                 content={
                                     <div className="ct-chart">
                                         <ChartistGraph
-                                            data={dataSales}
-                                            type="Line"
-                                            options={optionsSales}
+                                            data={dataPie}
+                                            type="Pie"
+                                            // options={optionsSales}
                                             responsiveOptions={responsiveSales}
                                         />
                                     </div>
                                     }
                                 legend={
                                     <div className="legend">
-                                        {this.createLegend(legendSales)}
+                                        {this.createLegend(legendPie)}
                                     </div>
                                 }
                             />
@@ -104,19 +106,74 @@ class Dashboard extends Component {
                         <Col md={4}>
                             <Card
                                 statsIcon="fa fa-clock-o"
-                                title="Email Statistics"
-                                category="Last Campaign Performance"
+                                title="MAP"
+                                category=""
                                 stats="Campaign sent 2 days ago"
                                 content={
-                                    <div id="chartPreferences" className="ct-chart ct-perfect-fourth">
-                                        <ChartistGraph data={dataPie} type="Pie"/>
+                                    <div className="table-full-width">
+
+                                        <Map
+                                            style={{width: '100%', height: '100%', position: 'relative'}}
+                                            google={this.props.google}
+                                            initialCenter={{
+                                                lat: 40.7484405,
+                                                lng: -73.9856644
+                                            }}
+                                            zoom={13}
+                                            clickableIcons={false}
+                                        >
+                                            <Marker onClick={this.onMarkerClick}
+                                                    name={'Current location'}
+                                            />
+                                        </Map>
+
+
                                     </div>
+
                                 }
                                 legend={
                                     <div className="legend">
-                                        {this.createLegend(legendPie)}
+
                                     </div>
                                 }
+
+                            />
+                        </Col>
+                        <Col md={4}>
+                            <Card
+                                statsIcon="fa fa-clock-o"
+                                title="NEWS"
+                                category=""
+                                stats="Campaign sent 2 days ago"
+                                content={
+                                    <Tabs
+                                        defaultTab="one"
+                                        onChange={(tabId) => { console.log(tabId) }}
+                                    >
+                                        <TabList>
+                                            <Tab tabFor="one">Tab 1</Tab>
+                                            <Tab tabFor="two">Tab 2</Tab>
+                                            <Tab tabFor="three">Tab 3</Tab>
+                                        </TabList>
+                                        <TabPanel tabId="one">
+                                            <p>Tab 1 content</p>
+                                        </TabPanel>
+                                        <TabPanel tabId="two">
+                                            <p>Tab 2 content</p>
+                                        </TabPanel>
+                                        <TabPanel tabId="three">
+                                            <p>Tab 3 content</p>
+                                        </TabPanel>
+                                    </Tabs>
+
+
+                                }
+                                legend={
+                                    <div className="legend">
+
+                                    </div>
+                                }
+
                             />
                         </Col>
                     </Row>

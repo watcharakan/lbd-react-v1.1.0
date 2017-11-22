@@ -13,7 +13,7 @@ const appRoutes = [
     { path: "/table", name: "Make Trip", icon: "pe-7s-note2", component: TableList },
     { path: "/typography", name: "Gruid Controler", icon: "pe-7s-news-paper", component: Typography },
     // { path: "/icons", name: "Icons", icon: "pe-7s-science", component: Icons },
-    { path: "/maps", name: "Maps", icon: "pe-7s-map-marker", component: Maps },
+    //{ path: "/maps", name: "Maps", icon: "pe-7s-map-marker", component: Maps },
     //  { path: "/notifications", name: "Notifications", icon: "pe-7s-bell", component: Notifications },
     // { upgrade: true, path: "/upgrade", name: "Upgrade to PRO", icon: "pe-7s-rocket", component: Upgrade },
     { redirect: true, path:"/", to:"/dashboard", name: "Home" }

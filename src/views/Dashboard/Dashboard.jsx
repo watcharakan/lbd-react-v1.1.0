@@ -3,8 +3,9 @@ import ChartistGraph from 'react-chartist';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
-import BigCalendar from 'react-big-calendar';
 
+import InfiniteCalendar from 'react-infinite-calendar';
+import 'react-infinite-calendar/styles.css';
 
 import {Card} from 'components/Card/Card.jsx';
 import {StatsCard} from 'components/StatsCard/StatsCard.jsx';
@@ -185,16 +186,21 @@ class Dashboard extends Component {
                     </Row>
 
                     <Row>
-                        <Col md={6}>
+                        <Col md={4}>
                             <Card
                                 id="chartActivity"
-                                title="2014 Sales"
-                                category="All products including Taxes"
+                                title="Calendar"
+                                category=" "
                                 stats="Data information certified"
                                 statsIcon="fa fa-check"
                                 content={
                                     <div className="ct-chart">
-                                       
+                                        <InfiniteCalendar
+                                            width={325}
+                                            height={450}
+
+                                            />
+
                                     </div>
                                 }
                                 legend={
@@ -205,16 +211,31 @@ class Dashboard extends Component {
                             />
                         </Col>
 
-                        <Col md={6}>
+                        <Col md={4}>
                             <Card
-                                title="Tasks"
-                                category="Backend development"
+                                title="MAKE TRIP"
+                                category=" "
                                 stats="Updated 3 minutes ago"
                                 statsIcon="fa fa-history"
                                 content={
                                     <div className="table-full-width">
                                         <table className="table">
-                                            <Tasks />
+
+                                        </table>
+                                    </div>
+                                }
+                            />
+                        </Col>
+                        <Col md={4}>
+                            <Card
+                                title="NOT SURE"
+                                category=" "
+                                stats="Updated 3 minutes ago"
+                                statsIcon="fa fa-history"
+                                content={
+                                    <div className="table-full-width">
+                                        <table className="table">
+
                                         </table>
                                     </div>
                                 }

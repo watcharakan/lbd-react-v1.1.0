@@ -3,6 +3,8 @@ import ChartistGraph from 'react-chartist';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
+import BigCalendar from 'react-big-calendar';
+
 
 import {Card} from 'components/Card/Card.jsx';
 import {StatsCard} from 'components/StatsCard/StatsCard.jsx';
@@ -22,6 +24,7 @@ import {
 } from 'variables/Variables.jsx';
 
 class Dashboard extends Component {
+
     createLegend(json){
         var legend = [];
         for(var i = 0; i < json["names"].length; i++){
@@ -35,6 +38,7 @@ class Dashboard extends Component {
             );
         }
         return legend;
+
     }
     render() {
         return (
@@ -110,10 +114,11 @@ class Dashboard extends Component {
                                 category=""
                                 stats="Campaign sent 2 days ago"
                                 content={
-                                    <div className="table-full-width">
+                                    <div className="ct-chart">
 
                                         <Map
-                                            style={{width: '100%', height: '100%', position: 'relative'}}
+
+                                             style={{width: '80%', height: '60%', position: 'relative'}}
                                             google={this.props.google}
                                             initialCenter={{
                                                 lat: 40.7484405,
@@ -125,6 +130,7 @@ class Dashboard extends Component {
                                             <Marker onClick={this.onMarkerClick}
                                                     name={'Current location'}
                                             />
+
                                         </Map>
 
 
@@ -188,17 +194,12 @@ class Dashboard extends Component {
                                 statsIcon="fa fa-check"
                                 content={
                                     <div className="ct-chart">
-                                        <ChartistGraph
-                                            data={dataBar}
-                                            type="Bar"
-                                            options={optionsBar}
-                                            responsiveOptions={responsiveBar}
-                                        />
+                                       
                                     </div>
                                 }
                                 legend={
                                     <div className="legend">
-                                        {this.createLegend(legendBar)}
+
                                     </div>
                                 }
                             />
@@ -226,5 +227,6 @@ class Dashboard extends Component {
         );
     }
 }
-
-export default Dashboard;
+export default GoogleApiWrapper({
+    apiKey: "AIzaSyBJExNOdS9QRcNOIbNfpViuorNj1uTEcp4"
+})(Dashboard)

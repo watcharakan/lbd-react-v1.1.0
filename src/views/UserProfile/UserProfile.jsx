@@ -8,7 +8,7 @@ import {Card} from 'components/Card/Card.jsx';
 import {FormInputs} from 'components/FormInputs/FormInputs.jsx';
 import {UserCard} from 'components/UserCard/UserCard.jsx';
 import Button from 'elements/CustomButton/CustomButton.jsx';
-
+import { Line, Circle } from 'rc-progress';
 import avatar from "assets/img/faces/face-3.jpg";
 
 
@@ -17,7 +17,10 @@ class UserProfile extends Component {
         return (
             <div className="content">
                 <Grid fluid>
+                    <Line percent="20" strokeWidth="5" strokeColor=" #66ff66" />
+                    line-height: 15px;
                     <Row>
+
                         <Col md={8}>
                             <Card
                                 title="Edit Profile"

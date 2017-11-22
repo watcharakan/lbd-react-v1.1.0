@@ -189,7 +189,7 @@ class Dashboard extends Component {
                         <Col md={4}>
                             <Card
                                 id="chartActivity"
-                                title="Calendar"
+                                title="calendar"
                                 category=" "
                                 stats="Data information certified"
                                 statsIcon="fa fa-check"
@@ -211,31 +211,16 @@ class Dashboard extends Component {
                             />
                         </Col>
 
-                        <Col md={4}>
+                        <Col md={6}>
                             <Card
-                                title="MAKE TRIP"
-                                category=" "
+                                title="Tasks"
+                                category="Backend development"
                                 stats="Updated 3 minutes ago"
                                 statsIcon="fa fa-history"
                                 content={
                                     <div className="table-full-width">
                                         <table className="table">
-
-                                        </table>
-                                    </div>
-                                }
-                            />
-                        </Col>
-                        <Col md={4}>
-                            <Card
-                                title="NOT SURE"
-                                category=" "
-                                stats="Updated 3 minutes ago"
-                                statsIcon="fa fa-history"
-                                content={
-                                    <div className="table-full-width">
-                                        <table className="table">
-
+                                            <Tasks />
                                         </table>
                                     </div>
                                 }
